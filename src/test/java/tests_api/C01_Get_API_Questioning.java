@@ -5,13 +5,13 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class Get_API_Questioning {
+public class C01_Get_API_Questioning {
 
     @Test
     public void name() {
 
         /*
-        https://restful-booker.herokuapp.com/booking/10 urline bir GET request gonderdigimizde donen Response'un,
+        https://restful-booker.herokuapp.com/booking/44 urline bir GET request gonderdigimizde donen Response'un,
         status code'unun 200,
         ve content type'inin application/json; charset=utf-8,
         ve Server isimli Header'in degerinin Cowboy,
