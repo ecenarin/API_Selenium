@@ -42,19 +42,7 @@ public class C20_GetTestPojoDummy extends BaseUrlRestApi {
         RestApiStorage rs=new RestApiStorage();
         JSONObject expectedData=rs.createBody();
         // 3- Response'u kaydet
-        /*
-        {
-    "status": "success",
-    "data": {
-        "id": 3,
-        "employee_name": "Ashton Cox",
-        "employee_salary": 86000,
-        "employee_age": 66,
-        "profile_image": ""
-    },
-    "message": "Successfully! Record has been fetched."
-}
-         */
+
         // 4- Assertion'lari yap
         JsonPath js=response.jsonPath();
        assertEquals(expectedData.get("status"),js.get("status"));
