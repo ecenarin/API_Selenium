@@ -2,6 +2,8 @@ package dataStorage;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 public class JsonPlaceHolder {
     public JSONObject putRequestBody(){
         JSONObject jsonObject=new JSONObject();
@@ -34,6 +36,23 @@ public class JsonPlaceHolder {
         jsonObject.put("userId",a3);
         jsonObject.put("id",a4);
         return jsonObject;
+
+    }
+    public HashMap createBody(Object a1,Object a2,Object a3,Object a4){
+        /*
+            {
+            "title":"Ahmet",
+            "body":"Merhaba",
+            "userId":10,
+            "id":70
+            }
+         */
+        HashMap<String,Object> hashMap=new HashMap<>();
+        hashMap.put("title",a1);
+        hashMap.put("body",a2);
+        hashMap.put("userId",a3);
+        hashMap.put("id",70.0);
+        return hashMap;
 
     }
 }
