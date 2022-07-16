@@ -2,7 +2,6 @@ package tests_api;
 
 import baseUrl.BaseUrlHerokuApp;
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.json.JSONObject;
@@ -10,7 +9,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class C016_BaseUrlHerOku extends BaseUrlHerokuApp {
+public class C16_BaseUrlHerOku extends BaseUrlHerokuApp {
     @Test
     public void name() {
         /*
