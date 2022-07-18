@@ -11,7 +11,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class C23_Deserialization extends BaseUrlRestApi {
+public class C23_GetDeserialization extends BaseUrlRestApi {
     @Test
     public void name() {
 

@@ -3,6 +3,8 @@ package dataStorage;
 import netscape.javascript.JSObject;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 public class HerOkuStorage {
 
     public JSONObject  createBody(){
@@ -63,5 +65,30 @@ public class HerOkuStorage {
 
       return bigger;
     }
-
+   public HashMap createMap(){
+        /*
+          {
+    	                "firstname" : "Ahmet",
+    	                "lastname" : “Bulut",
+    	                "totalprice" : 500,
+    	                "depositpaid" : false,
+    	                "bookingdates" : {
+    	                         "checkin" : "2021-06-01",
+    	                         "checkout" : "2021-06-10"
+    	                                  },
+    	                "additionalneeds" : "wi-fi"
+    	            }
+         */
+        HashMap<String,Object> map=new HashMap<>();
+       HashMap<String,Object> innerMap=new HashMap<>();
+       innerMap.put("checkin" , "2021-06-01");
+       innerMap.put("checkout" , "2021-06-10");
+       map.put("totalprice" , 500);
+       map.put("depositpaid" , false);
+       map.put( "firstname" , "Ahmet");
+       map.put("lastname" ,"Bulut");
+       map.put("bookingdates",innerMap);
+       map.put("additionalneeds" , "wi-fi");
+     return map;
+   }
 }
