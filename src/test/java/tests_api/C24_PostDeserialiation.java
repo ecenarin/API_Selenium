@@ -6,6 +6,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static io.restassured.RestAssured.given;
 
 public class C24_PostDeserialiation extends BaseUrlHerokuApp {
@@ -33,6 +35,7 @@ public class C24_PostDeserialiation extends BaseUrlHerokuApp {
                         "additionalneeds":"wi-fi"
                     }
      */
+        // 1 -Request url ve body'sini hazirlamak
         specHeroku.pathParam("pp1","booking");
         Response response=given()
                 .spec(specHeroku)
@@ -40,6 +43,12 @@ public class C24_PostDeserialiation extends BaseUrlHerokuApp {
                 .body(new RestApiStorage().createBodyMap())
                 .when()
                 .post("/{pp1}");
+
+        // 2- Expected Data'yi hazirla
+        HashMap<String,Object> expdata= new RestApiStorage().createBodyMap();
+        // 3- Response'u kaydet
+        HashMap<String,Object> respone=response.as(HashMap.class);
+        // 4- Assertion'lari yap
 
     }
 }
