@@ -1,18 +1,19 @@
 package tests_api;
 
 import baseUrl.BaseUrlHerokuApp;
+import baseUrl.BaseUrlspecJsonHolder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.Assert;
 import org.junit.Test;
 import pojo.PojoHerOkuBody;
 
-import java.util.ResourceBundle;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class C27_Pojodummy extends BaseUrlHerokuApp {
+
+
+public class C27_Pojodummy extends BaseUrlspecJsonHolder {
     @Test
     public void pojo() {
           /*
@@ -42,14 +43,15 @@ public class C27_Pojodummy extends BaseUrlHerokuApp {
             }
      */
         // 1 -Request url ve body'sini hazirlamak
-   specHeroku.pathParams("pp1","posts","pp2",70);
+   specJsonPlace.pathParams("pp1","posts","pp2",70);
         PojoHerOkuBody requestBody=new PojoHerOkuBody("Ahmet","Merhaba",10,70);
         Response response=given()
-                .spec(specHeroku)
                 .contentType(ContentType.JSON)
+                .spec(specJsonPlace)
                 .body(requestBody)
                 .when()
                 .put("/{pp1}/{pp2}");
+
 
         // 2- Expected Data'yi hazirla
         PojoHerOkuBody expData=new PojoHerOkuBody("Ahmet","Merhaba",10,70);
@@ -60,6 +62,10 @@ public class C27_Pojodummy extends BaseUrlHerokuApp {
                 .then()
                 .assertThat()
                 .statusCode(200);
-        assertEquals(expData.getBody(), );
+        assertEquals(expData.getTitle(),actual.getTitle() );
+        assertEquals(expData.getBody(),actual.getBody());
+        assertEquals(expData.getId(),actual.getId());
+        assertEquals(expData.getUserId(),actual.getUserId());
+
     }
 }
