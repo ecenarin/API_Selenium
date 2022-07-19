@@ -32,6 +32,36 @@ public class RestApiStorage {
         return js;
 
     }
+    public HashMap createNewMap(){
+        HashMap<String,Object> map=new HashMap<>();
+        HashMap<String,Object> inner=new HashMap<>();
+        inner.put("id",3);
+        inner.put("employee_name","Ashton Cox");
+        inner.put("employee_salary",86000);
+        inner.put("employee_age",66);
+        inner.put("profile_image","");
+        map.put("status","success");
+        map.put("data",inner);
+        map.put("message","Successfully! Record has been fetched.");
+        return map;
+
+    }
+    public  HashMap createBodyMap(Object title,Object body,Object userId,Object id){
+        HashMap<String,Object> map=new HashMap<>();
+        /*
+         {
+            "title":"Hasan",
+            "body":"Hoscakal",
+            "userId":10.0,
+            "id":70.0
+            }
+         */
+        map.put("title","Hasan");
+        map.put("body","Hoscakal");
+        map.put("userId",10.0);
+        map.put("id",70.0);
+        return map;
+    }
     public HashMap createBodyMap(){
         /*
          {

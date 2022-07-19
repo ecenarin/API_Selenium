@@ -1,6 +1,6 @@
-                // 1 -Request url ve body'sini hazirlamak
-                // 2- Expected Data'yi hazirla
-                // 3- Response'u kaydet
-                // 4- Assertion'lari yap
+                        // 1 -Request url ve body'sini hazirlamak
+                        // 2- Expected Data'yi hazirla
+                        // 3- Response'u kaydet
+                        // 4- Assertion'lari yap
 
 
