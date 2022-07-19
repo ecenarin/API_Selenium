@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
 import pojo.BookingBody;
+import pojo.BookingExpected;
 import pojo.Bookingdates;
 
 import java.lang.module.ResolutionException;
@@ -60,20 +61,22 @@ public class C28_Pojo_Post extends BaseUrlHerokuApp {
                 .post("/{pp1}");
         // 2- Expected Data'yi hazirla
         Bookingdates expbookingdates=new Bookingdates("2021-06-01","2021-06-10");
-        BookingBody expData=new BookingBody("Ahmet","Bulut",500,false,bookingdates,"wi-fi");
+        BookingExpected expData=new BookingExpected(24,bookingBody);
         // 3- Response'u kaydet
-        BookingBody actualData=response.as(BookingBody.class);
+        BookingExpected actualData=response.as(BookingExpected.class);
         // 4- Assertion'lari yap
         response
                 .then()
                 .assertThat()
                 .statusCode(200);
 
-        Assert.assertEquals(expData.getFirstname(),actualData.getFirstname());
-        Assert.assertEquals(expData.getLastname(),actualData.getLastname());
-        Assert.assertEquals(expData.getAdditionalneeds(),actualData.getAdditionalneeds());
-        Assert.assertEquals(expData.getDepositpaid(),actualData.getDepositpaid());
-        Assert.assertEquals(expData.getTotalprice(),actualData.getTotalprice());
+        Assert.assertEquals(expData.getBooking().getFirstname(),actualData.getBooking().getFirstname());
+        Assert.assertEquals(expData.getBooking().getLastname(),actualData.getBooking().getLastname());
+        Assert.assertEquals(expData.getBooking().getAdditionalneeds(),actualData.getBooking().getAdditionalneeds());
+        Assert.assertEquals(expData.getBooking().getDepositpaid(),actualData.getBooking().getDepositpaid());
+        Assert.assertEquals(expData.getBooking().getTotalprice(),actualData.getBooking().getTotalprice());
+        Assert.assertEquals(expData.getBooking().getBookingdates().getCheckin(),actualData.getBooking().getBookingdates().getCheckin());
+        Assert.assertEquals(expData.getBooking().getBookingdates().getCheckout(),actualData.getBooking().getBookingdates().getCheckout());
 
     }
 }
