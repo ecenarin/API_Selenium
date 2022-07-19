@@ -47,10 +47,10 @@ public class C26_GetDeserialization extends BaseUrlRestApi {
                  .assertThat()
                  .statusCode(200);
         assertEquals( expData.get("status"),actualData.get("status"));
-        assertEquals(  ((Map)  expData.get("status")).get("employee_name"),((Map)actualData.get("status")).get("employee_name"));
-        assertEquals(  ((Map)  expData.get("status")).get("employee_salary"),((Map)actualData.get("status")).get("employee_salary"));
-        assertEquals(  ((Map)  expData.get("status")).get("employee_age"),((Map)actualData.get("status")).get("employee_age"));
-        assertEquals(  ((Map)  expData.get("status")).get("profile_image"),((Map)actualData.get("status")).get("profile_image"));
+        assertEquals(  ((Map)  expData.get("data")).get("employee_name"),((Map)actualData.get("data")).get("employee_name"));
+        assertEquals(  ((Map)  expData.get("data")).get("employee_salary"),((Map)actualData.get("data")).get("employee_salary"));
+        assertEquals(  ((Map)  expData.get("data")).get("employee_age"),((Map)actualData.get("data")).get("employee_age"));
+        assertEquals(  ((Map)  expData.get("data")).get("profile_image"),((Map)actualData.get("data")).get("profile_image"));
         assertEquals( expData.get("message"),actualData.get("message"));
 
     }

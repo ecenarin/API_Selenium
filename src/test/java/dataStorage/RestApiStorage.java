@@ -35,10 +35,10 @@ public class RestApiStorage {
     public HashMap createNewMap(){
         HashMap<String,Object> map=new HashMap<>();
         HashMap<String,Object> inner=new HashMap<>();
-        inner.put("id",3);
+        inner.put("id",3.0);
         inner.put("employee_name","Ashton Cox");
-        inner.put("employee_salary",86000);
-        inner.put("employee_age",66);
+        inner.put("employee_salary",86000.0);
+        inner.put("employee_age",66.0);
         inner.put("profile_image","");
         map.put("status","success");
         map.put("data",inner);
